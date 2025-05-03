@@ -1,0 +1,291 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="751" Width="1090"
+         WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="#eff2f7" BorderBrush="Gray" BorderThickness="0" CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="#eff2f7" BorderBrush="Gray" BorderThickness="0" CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle3" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="#eff2f7" BorderBrush="Gray" BorderThickness="0" CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Border Background="{StaticResource {x:Static SystemColors.WindowBrushKey}}" 
+            CornerRadius="15" >
+        <Border.Clip>
+            <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,1090,751"/>
+        </Border.Clip>
+
+        <Canvas ClipToBounds="True" Margin="-552,0,0,0"  MouseLeftButtonDown="Canvas_MouseLeftButtonDown">
+
+
+
+            <Button x:Name="btnClose" Panel.ZIndex="999" Canvas.Left="1597" Canvas.Top="-12" Width="50" Height="71" 
+         
+             Style="{StaticResource CloseBtn}"
+             Click="CloseWindow" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button.Content>
+                    <Image Source="/Images/close.png" Height="38" Width="35" RenderTransformOrigin="0.517,0.337"/>
+                </Button.Content>
+            </Button>
+            <Button x:Name="btnMin" Panel.ZIndex="999" Canvas.Left="1547" Canvas.Top="-12" Width="50" Height="71" 
+         
+ Style="{StaticResource MinimizeBtn}"
+ Click="MinimizeWindow" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button.Content>
+                    <Image Source="/Images/delete.png" Height="38" Width="35" RenderTransformOrigin="0.517,0.337"/>
+                </Button.Content>
+            </Button>
+
+            <Rectangle Width="881" Height="878" Fill="#3498db" RadiusX="165.879" RadiusY="165.879"
+                  Canvas.Left="265" Canvas.Top="-62" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" StrokeStartLineCap="Flat">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-35.275"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Image Width="606" Canvas.Top="169" Source="Assets/—Pngtree—business office team meeting project_7183397.png" RenderTransformOrigin="0.717,0.454" x:Name="image" Canvas.Left="1106" Height="520" HorizontalAlignment="Left" VerticalAlignment="Center" >
+
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Setter Property="RenderTransform">
+                            <Setter.Value>
+                                <TranslateTransform X="0" Y="0"/>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <TranslateTransform  Y="-15"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+
+
+            <Button Background="#217DBB" Foreground="White" Content="LogIn" Height="47" Canvas.Left="671" Canvas.Top="492" Width="332" Click="Login_Click_1"
+                    VerticalAlignment="Top" FontWeight="Bold" FontStyle="Normal" HorizontalAlignment="Center" FontSize="22">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="0" 
+                                CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Background" Value="#eff2f7"/>
+                        <Setter Property="BorderBrush" Value="Gray"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#E8C4B5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+
+            <Grid Canvas.Left="667" Canvas.Top="430" Width="332" Height="47">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="31*"/>
+                    <ColumnDefinition Width="135*"/>
+                </Grid.ColumnDefinitions>
+                <!-- Placeholder Text -->
+
+                <PasswordBox x:Name="PasswordBox"
+             Width="332"
+             Height="47"
+             BorderThickness="0"
+             PasswordChanged="PasswordBox_PasswordChanged"
+             VerticalContentAlignment="Center"
+             HorizontalContentAlignment="Center"
+             Margin="0,-27,0,27" Grid.ColumnSpan="3">
+                    <PasswordBox.Style>
+                        <Style TargetType="PasswordBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="PasswordBox">
+                                        <Border Background="#eff2f7" 
+                                BorderBrush="Gray" 
+                                BorderThickness="0" 
+                                CornerRadius="20">
+                                            <Grid>
+                                                <ScrollViewer x:Name="PART_ContentHost"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"
+                                              Padding="10,0"/>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </PasswordBox.Style>
+                </PasswordBox>
+
+            </Grid>
+
+            <TextBlock Canvas.Left="712" TextWrapping="Wrap" Text="Welcome!"  Canvas.Top="228" Width="250"
+ HorizontalAlignment="Center" VerticalAlignment="Top"
+FontSize="53" FontWeight="Bold" Height="75" Foreground="#eff2f7" 
+RenderTransformOrigin="0.723,-0.526">
+
+            </TextBlock>
+
+
+            <Button Canvas.Left="884" Canvas.Top="460" Width="120" Height="22"
+      Content="Forgot Password?" HorizontalAlignment="Left" VerticalAlignment="Center"
+      FontWeight="DemiBold"  Click="ForgotPasswordButton_Click" RenderTransformOrigin="0.379,-2.18" BorderThickness="0" Foreground="#FFEFF2F7">
+                <Button.Style>
+                    <Style TargetType="Button">
+
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <TranslateTransform Y="-2"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border BorderBrush="Gray" BorderThickness="0" CornerRadius="10" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <ContentPresenter.Effect>
+                                                        <DropShadowEffect/>
+                                                    </ContentPresenter.Effect>
+                                                </ContentPresenter>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+            <TextBlock Text="Don't have an account?" 
+           FontSize="14" 
+           Foreground="#FFEFF2F7" Panel.ZIndex="999" FontWeight="DemiBold" Canvas.Left="733" Canvas.Top="559" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Button Content="Sign Up&#xA;" Height="22" Canvas.Left="880" Canvas.Top="558" Width="74" Click="Button_Click_1" 
+        HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="DemiBold" RenderTransformOrigin="0.379,-2.18" BorderThickness="0,0,0,0" Foreground="#FFEFF2F7">
+                <Button.Style>
+                    <Style TargetType="Button">
+
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border BorderBrush="Gray" BorderThickness="0" CornerRadius="10" Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                    <ContentPresenter.Effect>
+                                                        <DropShadowEffect/>
+                                                    </ContentPresenter.Effect>
+                                                </ContentPresenter>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+
+            <Grid Canvas.Left="667" Canvas.Top="359" Width="332" Height="47">
+
+                <!-- TextBox for Username -->
+                <TextBox x:Name="UsernameTextBox" TextWrapping="Wrap" TextChanged="TextBox_TextChanged_2" VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Center" VerticalContentAlignment="Center" Height="48" Width="332" Margin="0,-27,0,0">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Border Background="#eff2f7" BorderBrush="#eff2f7" BorderThickness="1" CornerRadius="20">
+                                            <ScrollViewer x:Name="PART_ContentHost" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </Grid>
+
+            <StackPanel x:Name="contentPanel" Height="58" Width="315" Canvas.Top="333" Canvas.Left="680"  Orientation="Horizontal" Panel.ZIndex="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock x:Name="UsernamePlaceholder2" Text="Username" Panel.ZIndex="10" Foreground="Gray" FontSize="18" Height="25" Width="92" Margin="0,-10,180,0"/>
+                <Image x:Name="imag" Source="/Assets/c0e442423a5dde61b9fa68e858ed26f8.png" Width="38" Height="30"  Margin="0,-10,180,0"/>
+            </StackPanel>
+            <StackPanel x:Name="contentPanelpass" Height="58" Width="315" Canvas.Top="398" Canvas.Left="680"  Orientation="Horizontal" Panel.ZIndex="10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock x:Name="UsernamePlaceholder1" Text="Password" Panel.ZIndex="10" Foreground="Gray" FontSize="18" Height="25" Width="92" Margin="0,0,180,0"/>
+                <Image x:Name="imag1" Source="/Assets/947757aa4f401c5c46d196283a55c386.png" Width="38" Height="30" />
+            </StackPanel>
+
+
+        </Canvas>
+
+    </Border>
+</Window>

@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="WpfApp1.EmployeeRole.EmployeePayroll"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:local="clr-namespace:WpfApp1.EmployeeRole"
+             mc:Ignorable="d">
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock x:Name="PayslipHeaderText" Grid.Row="0" Text="Your Payslip" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
+               HorizontalAlignment="Left" Foreground="#121518"/>
+
+        <Separator Grid.Row="1" Height="1"  Background="#dae2ea" Margin="0 10 0 10" />
+
+        <!-- Payslip Container -->
+        <Border Grid.Row="2" Padding="10" Background="White" CornerRadius="15">
+            <ScrollViewer>
+                <StackPanel x:Name="PayslipContainer">
+                    <!-- Dynamic payslip content will be added here in code-behind -->
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <TextBlock Grid.Row="2"
+            x:Name="PayslipText"
+            Text="Payslip will be displayed here..."
+            FontStyle="Italic"
+            Foreground="Gray"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="Visible"/>
+
+
+        <!-- Month / Year Selectors -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Margin="0 35 0 0">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,25,0">
+                <TextBlock Text="Select Month:" FontSize="13" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <ComboBox x:Name="MonthComboBox" Width="250" Height="25" VerticalAlignment="Center" SelectionChanged="ComboBox_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="25,0,0,0">
+                <TextBlock Text="Select Year:" FontSize="13" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <ComboBox x:Name="YearComboBox" Width="250" Height="25" VerticalAlignment="Center" SelectionChanged="ComboBox_SelectionChanged"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Generate Button -->
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 0 15">
+            <Button Content="Save as PDF" Background="#2ecc71" Click="SaveAsPdfButton_Click" Margin="0,0,10,0"
+                Style="{StaticResource addButton}" Width="140" x:Name="SaveAsPdfButton" IsEnabled="False"/>
+            <Button x:Name="GenerateButton" Click="GenerateButton_Click" Content="Generate Payslip" Margin="0"
+                Style="{StaticResource addButton}" Background="#2ecc71" Width="140" IsEnabled="False"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

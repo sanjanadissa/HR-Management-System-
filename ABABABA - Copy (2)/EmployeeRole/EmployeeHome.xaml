@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="WpfApp1.EmployeeRole.EmployeeHome"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:local="clr-namespace:WpfApp1.EmployeeRole"
+             mc:Ignorable="d">
+    <Grid Background="#f5f6fa" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Welcome -->
+            <RowDefinition Height="Auto"/>
+            <!-- Stats -->
+            <RowDefinition Height="*"/>
+            <!-- Bottom -->
+        </Grid.RowDefinitions>
+
+        <!-- Welcome Section -->
+        <Border Grid.Row="0" Background="White" CornerRadius="10" Padding="20" Margin="0 0 0 20">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <!--<Ellipse Width="60" Height="60" Fill="#3498db" Margin="0 0 20 0"/>-->
+                <StackPanel>
+                    <TextBlock Text="Welcome back!, 👋" FontSize="60" FontWeight="Bold" Foreground="#2c3e50"/>
+                    <TextBlock x:Name="txtName" FontSize="40" FontWeight="Bold" Foreground="#34495e"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Stat Cards -->
+        <Grid Grid.Row="1" Margin="0 0 0 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Background="White" CornerRadius="12" Padding="15" Margin="0 5 0 5">
+                <StackPanel>
+                    <TextBlock Text="Total Employees" FontSize="25" Foreground="#7f8c8d"/>
+                    <TextBlock x:Name="txtTotal" FontSize="40" FontWeight="Bold" Foreground="#2c3e50"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" Background="White" CornerRadius="12" Padding="15" Margin="10 5 10 5">
+                <StackPanel>
+                    <TextBlock Text="Pending Leaves" FontSize="25" Foreground="#7f8c8d"/>
+                    <TextBlock x:Name="txtLeaves" FontSize="40" FontWeight="Bold" Foreground="#2c3e50"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" Background="White" CornerRadius="12" Padding="15" Margin="0 5 0 5">
+                <StackPanel>
+                    <TextBlock Text="Payrolls Processed" FontSize="25" Foreground="#7f8c8d"/>
+                    <TextBlock x:Name="txtPayroll" FontSize="40" FontWeight="Bold" Foreground="#2c3e50"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Bottom Panels -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Recent Activity Panel -->
+            <Border Grid.Column="0" Background="White" CornerRadius="12" Padding="10" Margin="0 0 5 0">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <!-- Employee Info Grid with more spacing between lines -->
+                    <Grid Grid.Row="0" Margin="0 0 0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Name:" VerticalAlignment="Center" FontSize="15" />
+                        <TextBlock  x:Name="txtUsername" Grid.Column="1" Text="John Doe" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="0 0 0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Employee ID:" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBlock x:Name="txtId"  Grid.Column="1" Text="12345" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Margin="0 0 0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Department:" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBlock x:Name="txtDep" Grid.Column="1" Text="Sales" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Margin="0 0 0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Position:" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBlock x:Name="txtPosition" Grid.Column="1" Text="Sales Manager" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                    </Grid>
+
+                    <Grid Grid.Row="4" Margin="0 0 0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Basic Salary:" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBlock x:Name="txSalary" Grid.Column="1" Text="2022-01-15" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                    </Grid>
+
+                    <!-- Email -->
+                    <Grid Grid.Row="5" Margin="0 0 0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Email:" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBlock  x:Name="txtEmail" Grid.Column="1" Text="john.doe@abcplc.com" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                    </Grid>
+
+                    <!-- Phone Number -->
+                    <Grid Grid.Row="6" Margin="0 0 0 10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Phone:" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBlock x:Name="txtPhone" Grid.Column="1" Text="+94 712 345 678" VerticalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                    </Grid>
+
+                    <!-- Address -->
+                    <Grid Grid.Row="7">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="254*"/>
+                            <ColumnDefinition Width="31*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Address:" VerticalAlignment="Center" FontSize="15"/>
+                        <TextBlock x:Name="txtAddr" Grid.Column="1" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="15" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Quick Access Panel -->
+            <Border Grid.Column="1" Background="White" CornerRadius="12" Padding="15" Margin="10 0 10 0">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <TextBlock x:Name="txtTime" FontSize="32" Foreground="#2c3e50" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="txtDay" FontSize="30" Foreground="#2c3e50" FontWeight="Bold" Margin="0 10 0 20" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="txtDate" FontSize="25" Foreground="#2c3e50" FontWeight="Bold" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+        </Grid>
+    </Grid>
+</UserControl>

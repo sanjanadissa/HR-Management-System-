@@ -1,0 +1,98 @@
+﻿<Window x:Class="WpfApp1.RemoveDepartment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="RemoveDepartment"
+            Width="485" Height="250"
+    WindowStyle="None"
+    ResizeMode="NoResize"
+    Background="Transparent"
+    AllowsTransparency="True"
+    WindowStartupLocation="CenterScreen"
+    MouseDown="Window_MouseDown">
+
+    <Border CornerRadius="10">
+        <Border.Background>
+            <SolidColorBrush Color="#f5f6fa"/>
+        </Border.Background>
+        <Border CornerRadius="10"
+    BorderThickness="1">
+
+            <Border.BorderBrush>
+                <SolidColorBrush Color="#CCCCCC"/>
+            </Border.BorderBrush>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="btnClose"
+                        Grid.Column="3"
+                        Style="{StaticResource CloseBtn}"
+                        Click="btnClose_Click">
+                            <Button.Content>
+                                <Image Source="/Images/close.png" Height="15" Width="30"/>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="1" Margin="30 0 30 10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Remove Department" 
+                            Grid.Row="0"
+                            FontSize="30" 
+                            FontWeight="Bold"
+                            Foreground="#121518"    
+                            HorizontalAlignment="Center" 
+                            Margin="0"/>
+
+                        <Separator Grid.Row="1" Height="1"  Background="#dae2ea" Margin="0 10 0 10" />
+
+                        <ComboBox Grid.Row="2" x:Name="DepartmentComboBox" 
+                              Style="{StaticResource StandardComboBox}" 
+                              SelectedIndex="0"
+                              Height="40"
+                              Margin="0 20 0 0"
+                              SelectionChanged="DepartmentComboBox_SelectionChanged">        
+                            <ComboBoxItem Content="Select Department" IsEnabled="False" />
+                        </ComboBox>
+
+                        <Button Content="Remove" 
+                                x:Name="RemoveButton"
+                                HorizontalAlignment="Center"
+                                Grid.Row="3"
+                                VerticalAlignment="Top"
+                                FontSize="18"
+                                Margin="0 40 0 20"
+                                Style="{StaticResource addButton}"
+                                Background="#2ecc71"
+                                Foreground="White"
+                                IsEnabled="False"
+                                Click="RemoveButton_Click"/>    
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Border>
+</Window>

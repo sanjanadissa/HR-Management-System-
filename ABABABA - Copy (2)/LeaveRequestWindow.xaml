@@ -1,0 +1,162 @@
+﻿<UserControl  x:Class="WpfApp1.LeaveRequestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d">
+
+    <Grid x:Name="RootGrid" Margin="0">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Text="Pending Leaves" Grid.Row="0" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
+                   HorizontalAlignment="Left" Foreground="#121518"/>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Grid Width="250" Margin="0 25 10 0">
+                <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
+                    Panel.ZIndex="1" Text="Employee Id"
+                    Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/> 
+
+                <TextBox x:Name="txtSearch" Style="{StaticResource textboxSearch}" Margin="0"/>
+
+                <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
+                    Margin="0 0 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"/>
+            </Grid>
+
+            <Button x:Name="btnViewLeaves" Style="{StaticResource addButton}" Width="120" Margin="0 25 0 0" Click="ViewLeaves_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="View Leaves"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnResetSelf" Style="{StaticResource addButton}" Width="120" Margin="5 25 0 0" Click="ResetToSelf_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Reset to Self"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <Separator Grid.Row="1" Height="1"  Background="#dae2ea" Margin="0 5 0 10" />
+
+        <!-- Stat Cards -->
+        <Grid x:Name="StatGridTop" Grid.Row="2" Margin="0 0 0 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Background="White" CornerRadius="12" Padding="15" Margin="0 5 0 5">
+                <StackPanel>
+                    <TextBlock Text="Casual Leaves" FontSize="20" Foreground="#7f8c8d"/>
+                    <TextBlock x:Name="txtCasualLeaves" FontSize="35" FontWeight="Bold" Foreground="#2c3e50"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" Background="White" CornerRadius="12" Padding="15" Margin="10 5 10 5">
+                <StackPanel>
+                    <TextBlock Text="Sick Leaves" FontSize="20" Foreground="#7f8c8d"/>
+                    <TextBlock x:Name="txtSickLeaves" FontSize="35" FontWeight="Bold" Foreground="#2c3e50"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" Background="White" CornerRadius="12" Padding="15" Margin="0 5 0 5">
+                <StackPanel>
+                    <TextBlock Text="Annual Leaves" FontSize="20" Foreground="#7f8c8d"/>
+                    <TextBlock x:Name="txtAnnualLeaves" FontSize="35" FontWeight="Bold" Foreground="#2c3e50"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Grid x:Name="StatGridBottom" Grid.Row="3" Margin="0 0 0 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <!-- Paternity Leaves -->
+                <Border x:Name="PaternityLeaveBorder" Background="White" CornerRadius="12" Padding="15" Margin="0 5 0 5">
+                    <StackPanel>
+                        <TextBlock Text="Paternity Leaves" FontSize="20" Foreground="#7f8c8d"/>
+                        <TextBlock x:Name="txtPaternityLeaves" FontSize="35" FontWeight="Bold" Foreground="#2c3e50"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Maternity Leaves -->
+                <Border x:Name="MaternityLeaveBorder" Background="White" CornerRadius="12" Padding="15" Margin="0 5 0 5" Visibility="Collapsed">
+                    <StackPanel>
+                        <TextBlock Text="Maternity Leaves" FontSize="20" Foreground="#7f8c8d"/>
+                        <TextBlock x:Name="txtMaternityLeaves" FontSize="35" FontWeight="Bold" Foreground="#2c3e50"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Border Grid.Column="1" Background="White" CornerRadius="12" Padding="15" Margin="10 5 10 5">
+                <StackPanel>
+                    <TextBlock Text="bereavement Leaves" FontSize="20" Foreground="#7f8c8d"/>
+                    <TextBlock x:Name="txtBereavementLeaves" FontSize="35" FontWeight="Bold" Foreground="#2c3e50"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" Background="White" CornerRadius="12" Padding="15" Margin="0 5 0 5">
+                <StackPanel>
+                    <TextBlock Text="Short Leaves" FontSize="20" Foreground="#7f8c8d"/>
+                    <TextBlock x:Name="txtShortLeaves" FontSize="35" FontWeight="Bold" Foreground="#2c3e50"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0 10 0 10" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0 0 20 0">
+                <TextBlock Text="Select Leave:" FontSize="13" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <ComboBox Name="LeaveTypeComboBox" Background="White" Height="25" Width="300" SelectionChanged="LeaveTypeComboBox_SelectionChanged" />
+            </StackPanel>
+            <Border Background="White" Margin="15 0 0 0" CornerRadius="15" Width="240">
+                <Calendar Name="LeaveCalendar" SelectionMode="MultipleRange"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center"
+                      FontSize="24"
+                      SelectedDatesChanged="LeaveCalendar_SelectedDatesChanged"
+                      Style="{StaticResource BorderlessCalendar}"/>
+            </Border>
+        </StackPanel>
+        <Button Grid.Row="5"
+                x:Name="SubmitButton"
+                Background="#2ecc71"
+                Padding="10"
+                Margin="0 10 0 5"
+                Width="200"
+                Cursor="Hand"
+                Click="SubmitLeaveRequest_Click"
+                Effect="{DynamicResource DropShadowEffect}"
+                IsEnabled="False">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" 
+                            CornerRadius="10" 
+                            SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="Center" 
+                                          VerticalAlignment="Center"
+                                          RecognizesAccessKey="True"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="Submit Leave Request" FontWeight="Bold" Foreground="White" TextAlignment="Center" Margin="10"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl >

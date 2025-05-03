@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="WpfApp1.ModifyEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d">
+
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Heading -->
+        <TextBlock Text="Modify Employee" Grid.Row="0" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
+        HorizontalAlignment="Left" Foreground="#121518"/>
+
+        <!-- Search ID -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0">
+            <Grid Width="250" Margin="0 25 10 0">
+                <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
+                    Panel.ZIndex="1" Text="Employee Id"
+                    Visibility="{Binding ElementName=EmployeeIdTextBox, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+
+                <TextBox x:Name="EmployeeIdTextBox" Style="{StaticResource textboxSearch}" Margin="0"/>
+
+                <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
+                        Margin="0 0 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"/>
+            </Grid>
+            <Button Content="Search" Width="80" Style="{StaticResource ResourceKey=addButton}" Margin="0 25 0 0" Click="SearchButton_Click"/>
+        </StackPanel>
+
+        <Separator Grid.Row="1" Height="1"  Background="#dae2ea" Margin="0 5 0 10" />
+
+        <!-- Input Fields in Two Columns -->
+        <Grid Grid.Row="2" Margin="0 35 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Column 1 -->
+            <StackPanel Grid.Column="0" Margin="0 0 15 0">
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <TextBox x:Name="FirstNameTextBox" Height="45" Width="325" Style="{StaticResource RoundTextBox}" Tag="First Name"/>
+                    <Button x:Name="FirstNameEditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding}" Height="35" Width="35" Margin="10 0 0 0">
+                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <TextBox x:Name="AddressTextBox" Height="45" Width="325" Style="{StaticResource RoundTextBox}" Tag="Address"/>
+                    <Button x:Name="AddressEditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding}" Height="35" Width="35" Margin="10 0 0 0">
+                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <TextBox x:Name="PhoneTextBox" Height="45" Width="325" Style="{StaticResource RoundTextBox}" Tag="Phone Number"/>
+                    <Button x:Name="PhoneEditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding}" Height="35" Width="35" Margin="10 0 0 0">
+                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <ComboBox x:Name="PositionComboBox" Height="45" Width="365"
+                                            Style="{StaticResource StandardComboBox}"
+                                            IsEnabled="False"
+                                            SelectedIndex="0"
+                                            Margin="0">
+                        <ComboBoxItem Content="Select Position" IsEnabled="False" />
+                        <ComboBoxItem Content="Manager"/>
+                        <ComboBoxItem Content="Admin"/>
+                        <ComboBoxItem Content="Developer"/>
+                        <ComboBoxItem Content="Designer"/>
+                        <ComboBoxItem Content="Consultant"/>
+                        <ComboBoxItem Content="Intern"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBox x:Name="EmailTextBox" Height="45" Width="325" Style="{StaticResource RoundTextBox}" Tag="Email"/>
+                    <Button x:Name="EmailEditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding}" Height="35" Width="35" Margin="10 0 0 0">
+                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Column 2 -->
+            <StackPanel Grid.Column="1" Margin="15 0 0 0">
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <TextBox x:Name="LastNameTextBox" Height="45" Width="325" Style="{StaticResource RoundTextBox}" Tag="Last Name"/>
+                    <Button x:Name="LastNameEditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding}" Height="35" Width="35" Margin="10 0 0 0">
+                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <TextBox x:Name="BirthdayTextBox" Height="45" Width="325" Style="{StaticResource RoundTextBox}" Tag="Birthday"/>
+                    <Button x:Name="BirthdayEditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding}" Height="35" Width="35" Margin="10 0 0 0">
+                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <TextBox x:Name="BasicSalaryTextBox" Height="45" Width="325" Style="{StaticResource RoundTextBox}" Tag="Basic Salary"/>
+                    <Button x:Name="SalaryEditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding}" Height="35" Width="35" Margin="10 0 0 0">
+                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,25">
+                    <ComboBox x:Name="DepartmentComboBox" Height="45" Width="365"
+                                            Style="{StaticResource StandardComboBox}"
+                                            SelectedIndex="0"
+                                            IsEnabled="False"
+                                            Margin="0">
+                        <ComboBoxItem Content="Select Department" IsEnabled="False" />
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBox x:Name="PasswordTextBox" Height="45" Width="325" Style="{StaticResource RoundTextBox}" Tag="Password"/>
+                    <Button x:Name="PasswordEditButton" Style="{StaticResource gridEditButton}" CommandParameter="{Binding}" Height="35" Width="35" Margin="10 0 0 0">
+                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <!-- Update Button -->
+        <Button x:Name="UpdateButton" Grid.Row="3" Margin="0 30 0 10" Background="#2ecc71" HorizontalAlignment="Center" Style="{StaticResource addButton}" Content="Update" Width="100" Height="45" Click="UpdateButton_Click"/>
+    </Grid>
+</UserControl>
